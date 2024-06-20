@@ -88,4 +88,4 @@ ciudades específicas.</h1>
 <h1>10.Descripción: Un administrador desea obtener todos los clientes que tienen paquetes de ciertos
 tipos específicos (por ejemplo, 'nacional' o 'internacional').</h1>
 
-<h1></h1>
+<h4>hola</h4>
