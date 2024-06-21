@@ -9,7 +9,7 @@ CREATE TABLE paises (
 
 CREATE TABLE ciudades (
     id_ciudades VARCHAR(5),
-    nombre VARCHAR(30),
+    nombre VARCHAR(25),
     id_pais VARCHAR(9),
     CONSTRAINT pk_id_ciudades PRIMARY KEY (id_ciudades),
     CONSTRAINT fk_pais_ciudad FOREIGN KEY (id_pais) REFERENCES paises(id_pais)
@@ -37,7 +37,7 @@ CREATE TABLE modelos (
     CONSTRAINT fk_marca_modelos FOREIGN KEY (id_marca) REFERENCES marcas(id_marca)
 );
 
-CREATE TABLE vehiculos (
+CREATE TABLE camiones (
     placa VARCHAR(7) NOT NULL UNIQUE,
     capacidad_carga DECIMAL(10, 2),  
     modelo_id INT,
@@ -77,7 +77,7 @@ CREATE TABLE rutasconductor (
     CONSTRAINT pk_id_rutasconductor PRIMARY KEY (conductor_id, ruta_id),  
     CONSTRAINT fk_conductor_rutasconductor FOREIGN KEY (conductor_id) REFERENCES conductores(id_conductor), 
     CONSTRAINT fk_ruta_rutasconductor FOREIGN KEY (ruta_id) REFERENCES rutas(id_rutas),
-    CONSTRAINT fk_vehiculos_rutasconductor FOREIGN KEY (vehiculo_id) REFERENCES vehiculos(placa),  
+    CONSTRAINT fk_vehiculos_rutasconductor FOREIGN KEY (vehiculo_id) REFERENCES camiones(placa),  
     CONSTRAINT fk_sucursal_rutasconductor FOREIGN KEY (sucursal_id) REFERENCES sucursales(id_sucursal)  
 );
 
@@ -140,12 +140,14 @@ CREATE TABLE envios (
     id_cliente INT,
     id_paquete INT,
     id_sucursal INT,
-    fecha_envio TIMESTAMP,  
+    fecha_envio TIMESTAMP,
+    id_rutas INT,  
     destino VARCHAR(100),
     CONSTRAINT pk_id_envios PRIMARY KEY (id_envio),
     CONSTRAINT fk_envios_clientes FOREIGN KEY (id_cliente) REFERENCES clientes(id_cliente),
     CONSTRAINT fk_envios_paquete FOREIGN KEY (id_paquete) REFERENCES paquetes(id_paquete),
-    CONSTRAINT fk_envios_sucursal FOREIGN KEY (id_sucursal) REFERENCES sucursales(id_sucursal)
+    CONSTRAINT fk_envios_sucursal FOREIGN KEY (id_sucursal) REFERENCES sucursales(id_sucursal),
+    CONSTRAINT fk_envios_rutas FOREIGN KEY (id_rutas) REFERENCES sucursales(id_sucursal)
 );
 
 CREATE TABLE rutasauxiliares (
@@ -165,14 +167,8 @@ CREATE TABLE telconductores (
 
 CREATE TABLE telclientes (
     id_cliente INT,
-    telefono VARCHAR(15),
+    telefono VARCHAR(13),
     CONSTRAINT pk_telclientes PRIMARY KEY (id_cliente, telefono),
     CONSTRAINT fk_cliente_telclientes FOREIGN KEY (id_cliente) REFERENCES clientes(id_cliente)
 );
 
-CREATE TABLE historial (
-    id_historial INT AUTO_INCREMENT,
-    descripcion TEXT,
-    fecha TIMESTAMP,
-    CONSTRAINT pk_historial PRIMARY KEY (id_historial)
-);
