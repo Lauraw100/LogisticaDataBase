@@ -1,4 +1,4 @@
-                            <h2>CONSULTAS</h2>
+ <h2>CONSULTAS</h2>
 <h4>1.Un administrador desea agregar un nuevo país a la base de datos.</h4>
 
 <h4>2.Un administrador desea agregar una nueva ciudad asociada a un país existente.</h4>
@@ -38,7 +38,7 @@ cliente específico.</h4>
 
 <h4>17.Un administrador desea rastrear la ubicación actual de un paquete específico.</h4>
 
-                             <h2>Casos Multitabla</h2>
+   <h2>Casos Multitabla</h2>
 
 <h4>1.Un administrador desea obtener la información completa de todos los envíos,
 incluyendo detalles del cliente, paquete, ruta, conductor, y sucursal.</h4>
@@ -58,7 +58,7 @@ sucursal y estado.</h4>
 <h4>6.Un administrador desea obtener la información completa de un paquete específico
 y su historial de seguimiento.</h4>
 
-                       <h2>Casos de uso  Not In</h2>
+   <h2>Casos de uso  Not In</h2>
 
 <h4>1.Un administrador desea obtener todos los paquetes que fueron enviados dentro de
 un rango de fechas específico.</h4>
